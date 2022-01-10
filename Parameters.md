@@ -1,325 +1,373 @@
-# Settings
+# Level Design Parameters Documentation
+
+## Table of Content
+
+- [Settings Table](#Settings)
+  - [BallSize](#BallSize)
+  - [DifficultyRank](#DifficultyRank)
+  - [LeftStartPassObjective](#LeftStartPassObjective)
+  - [RightStartPassObjective](#RightStartPassObjective)
+  - [MaxLeftPositionPassObjective](#MaxLeftPositionPassObjective)
+  - [MaxRightPositionPassObjective](#MaxRightPositionPassObjective)
+  - [MaxUpperPositionPassObjective](#MaxUpperPositionPassObjective)
+  - [MinLowerPositionPassObjective](#MinLowerPositionPassObjective)
+  - [MaxNearPositionPassObjective](#MaxNearPositionPassObjective)
+  - [MaxFarPositionPassObjective](#MaxFarPositionPassObjective)
+- [Passes Table](#Passes)
+  - [BallSize](#Id)
+  - [BallSpeed](#BallSpeed)
+  - [PassGiverTarget](#PassGiverTarget)
+  - [IsRandomPassGiverTarget](#IsRandomPassGiverTarget)
+  - [PassGiverTargetMinDistance](#PassGiverTargetMinDistance)
+  - [PassGiverTargetMaxDistance](#PassGiverTargetMaxDistance)
+- [PassLoops Table](#PassLoops)
+  - [AssignedToPassId](#AssignedToPassId)
+  - [IsScanPlayersSituation](#IsScanPlayersSituation)
+  - [PlayerRangeLeft](#PlayerRangeLeft)
+  - [PlayerRangeRight](#PlayerRangeRight)
+  - [PlayersSituationDistance](#PlayersSituationDistance)
+  - [PlayersSituationRadius](#PlayersSituationRadius)
+  - [PlayersMinDistanceBetween](#PlayersMinDistanceBetween)
+  - [MatesOpponentsRatio](#MatesOpponentsRatio)
+  - [MatePredefinedPlaces](#MatePredefinedPlaces)
+  - [OpponentPredefinedPlaces](#OpponentPredefinedPlaces)
+  - [IsHandConstrained](#IsHandConstrained)
+  - [IsHapticConstrained](#IsHapticConstrained)
+  - [IsStalemateSituationPresent](#IsStalemateSituationPresent)
+  - [StalemateRangeLeft](#StalemateRangeLeft)
+  - [StalemateRangeRight](#StalemateRangeRight)
+  - [StalemateSituationDistance](#StalemateSituationDistance)
+  - [StalemateSituationRadius](#StalemateSituationRadius)
+  - [StalematePinsPerTeam](#StalematePinsPerTeam)
+  - [StalemateMinDistanceBetween](#StalemateMinDistanceBetween)
+  - [StalemateMatePredefinedPlaces](#StalemateMatePredefinedPlaces)
+  - [StalemateOpponentPredefinedPlaces](#StalemateOpponentPredefinedPlaces)
+
+# Parameters
+
+## Settings
 
 Table contains parameters that belong to the whole Level.
 
-## BallSize
+### BallSize
 
 The size of the ball moving between PassObjectives
 
-| Description | Value |
-|---|---|
-| Default | 0.5 |
-| Example | 0.5 |
-| Unit | m |
+| Description   | Value                    |
+| ------------- | ------------------------ |
+| Default       | `0.5`                    |
+| Example       | `0.5`                    |
+| Unit          | m                        |
 | Allowed Range | any floatingpoint number |
-| Dependencies | - |
+| Dependencies  | -                        |
 
-Technical information: PassController.Initiate
+Technical information: `PassController.Initiate`
 
-## DifficultyRank
+### DifficultyRank
 
 Unused.
 
-## LeftStartPassObjective
+### LeftStartPassObjective
 
 Start position of the left PassObjective (initial pass giver) as (x/y/z) Coordinate.
 
-| Description | Value |
-|---|---|
-| Default | (-8/3.5/15) |
-| Example | (-8/3.5/15) |
-| Unit | (m/m/m) center is (0/0/0) |
-| Allowed Range | no restrictions |
-| Dependencies | It should consider defined position for RightStartPassObjective |
+| Description   | Value                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| Default       | `(-8/3.5/15)`                                                                               |
+| Example       | `(-8/3.5/15)`                                                                               |
+| Unit          | (m/m/m) center is (0/0/0)                                                                   |
+| Allowed Range | no restrictions                                                                             |
+| Dependencies  | It should consider defined position for [RightStartPassObjective](#RightStartPassObjective) |
 
-Technical information: PassController.Initiate
+Technical information: `PassController.Initiate`
 
-## RightStartPassObjective
+### RightStartPassObjective
 
 Start position of the right PassObjective (initial pass receiver) as (x/y/z) Coordinate.
 
-| Description | Value |
-|---|---|
-| Default | (8/3.5/15) |
-| Example | (8/3.5/15) |
-| Unit | (m/m/m) center is (0/0/0) |
-| Allowed Range | no restrictions |
-| Dependencies | It should consider defined position for LeftStartPassObjective |
+| Description   | Value                                                                                     |
+| ------------- | ----------------------------------------------------------------------------------------- |
+| Default       | `(8/3.5/15)`                                                                              |
+| Example       | `(8/3.5/15)`                                                                              |
+| Unit          | (m/m/m) center is (0/0/0)                                                                 |
+| Allowed Range | no restrictions                                                                           |
+| Dependencies  | It should consider defined position for [LeftStartPassObjective](#LeftStartPassObjective) |
 
-Technical information: PassController.Initiate
+Technical information: `PassController.Initiate`
 
-## MaxLeftPositionPassObjective
+### MaxLeftPositionPassObjective
 
 Positioning PassObjectives randomly, this is the most left position possible
 
-| Description | Value |
-|---|---|
-| Default | -15 |
-| Example | -12.5 |
-| Unit | m |
-| Allowed Range | -15 to -30 |
-| Dependencies | Relevant if Passed.IsRandomPassGiverTarget is checked |
+| Description   | Value                                                                      |
+| ------------- | -------------------------------------------------------------------------- |
+| Default       | `-15`                                                                      |
+| Example       | `-12.5`                                                                    |
+| Unit          | m                                                                          |
+| Allowed Range | `-15` to `-30`                                                             |
+| Dependencies  | Relevant if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-## MaxRightPositionPassObjective
+### MaxRightPositionPassObjective
 
 Positioning PassObjectives randomly, this is the most right position possible
 
-| Description | Value |
-|---|---|
-| Default | 15 |
-| Example | 12.5 |
-| Unit | m |
-| Allowed Range | 15 to 30 |
-| Dependencies | Relevant if Passed.IsRandomPassGiverTarget is checked |
+| Description   | Value                                                                      |
+| ------------- | -------------------------------------------------------------------------- |
+| Default       | `15`                                                                       |
+| Example       | `12.5`                                                                     |
+| Unit          | m                                                                          |
+| Allowed Range | `15` to `30`                                                               |
+| Dependencies  | Relevant if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-## MaxUpperPositionPassObjective
+### MaxUpperPositionPassObjective
 
 Positioning PassObjectives randomly, this is the most upper position possible
 
-| Description | Value |
-|---|---|
-| Default | 4 |
-| Example | 3.25 |
-| Unit | m |
-| Allowed Range | 1 to 7 |
-| Dependencies | Relevant if Passed.IsRandomPassGiverTarget is checked; may interfere MinLowerPositionPassObjective |
+| Description   | Value                                                                                                                   |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Default       | `4`                                                                                                                     |
+| Example       | `3.25`                                                                                                                  |
+| Unit          | m                                                                                                                       |
+| Allowed Range | `1` to `7`                                                                                                              |
+| Dependencies  | Relevant if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked; may interfere MinLowerPositionPassObjective |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-## MinLowerPositionPassObjective
+### MinLowerPositionPassObjective
 
 Positioning PassObjectives randomly, this is the lowest position possible
 
-| Description | Value |
-|---|---|
-| Default | 4 |
-| Example | 3.25 |
-| Unit | m |
-| Allowed Range | 1 to 7 |
-| Dependencies | Relevant if Passed.IsRandomPassGiverTarget is checked; may interfere MaxUpperPositionPassObjective |
+| Description   | Value                                                                                                                                                     |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `4`                                                                                                                                                       |
+| Example       | `3.25`                                                                                                                                                    |
+| Unit          | m                                                                                                                                                         |
+| Allowed Range | `1` to `7`                                                                                                                                                |
+| Dependencies  | Relevant if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked; may interfere [MaxUpperPositionPassObjective](#MaxUpperPositionPassObjective) |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-## MaxNearPositionPassObjective
+### MaxNearPositionPassObjective
 
 Positioning PassObjectives randomly, this is the nearest position possible
 
-| Description | Value |
-|---|---|
-| Default | 10 |
-| Example | 15.25 |
-| Unit | m |
-| Allowed Range | 10 to 30 |
-| Dependencies | Relevant if Passed.IsRandomPassGiverTarget is checked; may interfere MaxFarPositionPassObjective |
+| Description   | Value                                                                                                                                                 |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `10`                                                                                                                                                  |
+| Example       | `15.25`                                                                                                                                               |
+| Unit          | m                                                                                                                                                     |
+| Allowed Range | `10` to `30`                                                                                                                                          |
+| Dependencies  | Relevant if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked; may interfere [MaxFarPositionPassObjective](#MaxFarPositionPassObjective) |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-## MaxFarPositionPassObjective
+### MaxFarPositionPassObjective
 
 Positioning PassObjectives randomly, this is the farest position possible
 
-| Description | Value |
-|---|---|
-| Default | 25 |
-| Example | 10.25 |
-| Unit | m |
-| Allowed Range | 10 to 30 |
-| Dependencies | Relevant if Passed.IsRandomPassGiverTarget is checked; may interfere MaxNearPositionPassObjective |
+| Description   | Value                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `25`                                                                                                                                                    |
+| Example       | `10.25`                                                                                                                                                 |
+| Unit          | m                                                                                                                                                       |
+| Allowed Range | `10` to `30`                                                                                                                                            |
+| Dependencies  | Relevant if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked; may interfere [MaxNearPositionPassObjective](#MaxNearPositionPassObjective) |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-# Passes
+## Passes
 
 Table contains parameters to describe passes. Each row defines a single pass.
 
-## Id
+### Id
 
-A pass identifier. Used to reference pass within the PassLoops table (AssignedToPassId). Auto increments.
+A pass identifier. Used to reference pass within the PassLoops table ([AssignedToPassId](#AssignedToPassId)). Auto increments.
 
-| Description | Value |
-|---|---|
-| Default | Pass-n |
-| Example | Pass-0001 |
-| Unit | - |
-| Allowed Range | - |
-| Dependencies | PassLoops.AssignedToPassId |
+| Description   | Value                                 |
+| ------------- | ------------------------------------- |
+| Default       | Pass-n                                |
+| Example       | Pass-0001                             |
+| Unit          | -                                     |
+| Allowed Range | -                                     |
+| Dependencies  | [AssignedToPassId](#AssignedToPassId) |
 
-Technical information: Lib-Exercises
+Technical information: `Lib-Exercises`
 
-## BallSpeed
+### BallSpeed
 
 Ball speed in meter per second.
 
-| Description | Value |
-|---|---|
-| Default | 0 |
-| Example | 3 |
-| Unit | m/s |
+| Description   | Value             |
+| ------------- | ----------------- |
+| Default       | `0`               |
+| Example       | `3`               |
+| Unit          | m/s               |
 | Allowed Range | any integer value |
-| Dependencies | - |
+| Dependencies  | -                 |
 
-Technical information: PassController.PlayPass
+Technical information: `PassController.PlayPass`
 
-## PassGiverTarget
+### PassGiverTarget
 
 Deterministic target position of the PassObjective (pass giver) as (x/y/z) Coordinate.
 
-| Description | Value |
-|---|---|
-| Default | (8/3.5/15) |
-| Example | (-2/2.5/10) |
-| Unit | (m/m/m) center is (0/0/0) |
-| Allowed Range | no restrictions |
-| Dependencies | Only applies if IsRandomPassGiverTarget is not checked |
+| Description   | Value                                                                                  |
+| ------------- | -------------------------------------------------------------------------------------- |
+| Default       | `(8/3.5/15)`                                                                           |
+| Example       | `(-2/2.5/10)`                                                                          |
+| Unit          | (m/m/m) center is (0/0/0)                                                              |
+| Allowed Range | no restrictions                                                                        |
+| Dependencies  | Only applies if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is **not** checked |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-## IsRandomPassGiverTarget
+### IsRandomPassGiverTarget
 
 Denotes whether PassObjective (pass giver) should have a random target position. If checked PassGiverTarget is ignored.
 
-| Description | Value |
-|---|---|
-| Default | false |
-| Example | check |
-| Unit | boolean value |
-| Allowed Range | - |
-| Dependencies | Enables random target positioning and disables PassGiverTarget position |
+| Description   | Value                                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------- |
+| Default       | `false`                                                                                         |
+| Example       | check                                                                                           |
+| Unit          | boolean value                                                                                   |
+| Allowed Range | -                                                                                               |
+| Dependencies  | Enables random target positioning and **disables** [PassGiverTarget](#PassGiverTarget) position |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-## PassGiverTargetMinDistance
+### PassGiverTargetMinDistance
 
 Min distance of pass giver target position from pass receiver position (next loop pass giver). Relevant in combination with random positioning.
 
-Note that the program tries to find a random target postion within the boundries of PassGiverTargetMinDistance and PassGiverTargetMaxDistance in cycles. If a target positon can not be found within 200 cycles, the best target position found within those cycles is chosen (best means: target position with maximum distance).
+Note that the program tries to find a random target postion within the boundries of [PassGiverTargetMinDistance](#PassGiverTargetMinDistance) and [PassGiverTargetMaxDistance](#PassGiverTargetMaxDistance) in cycles. If a target positon can not be found within **200** cycles, the best target position found within those cycles is chosen (best means: target position with maximum distance).
 
-| Description | Value |
-|---|---|
-| Default | 8 |
-| Example | 8.25 |
-| Unit | m |
-| Allowed Range | 8 to 20 |
-| Dependencies | Only applies if IsRandomPassGiverTarget is checked; may interfere PassGiverTargetMaxDistance |
+| Description   | Value                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `8`                                                                                                                                                     |
+| Example       | `8.25`                                                                                                                                                  |
+| Unit          | m                                                                                                                                                       |
+| Allowed Range | `8` to `20`                                                                                                                                             |
+| Dependencies  | Only applies if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked; may interfere [PassGiverTargetMaxDistance](#PassGiverTargetMaxDistance) |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-## PassGiverTargetMaxDistance
+### PassGiverTargetMaxDistance
 
 Max distance of pass giver target position from pass receiver position (next loop pass giver). Relevant in combination with random positioning.
 
-For more information see PassGiverTargetMinDistance.
+For more information see [PassGiverTargetMinDistance](#PassGiverTargetMinDistance).
 
-| Description | Value |
-|---|---|
-| Default | 20 |
-| Example | 16.25 |
-| Unit | m |
-| Allowed Range | 8 to 20 |
-| Dependencies | Only applies if IsRandomPassGiverTarget is checked; may interfere PassGiverTargetMinDistance |
+| Description   | Value                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `20`                                                                                                                                                    |
+| Example       | `16.25`                                                                                                                                                 |
+| Unit          | m                                                                                                                                                       |
+| Allowed Range | `8` to `20`                                                                                                                                             |
+| Dependencies  | Only applies if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked; may interfere [PassGiverTargetMinDistance](#PassGiverTargetMinDistance) |
 
-Technical information: PassController.DetermineNextPosition
+Technical information: `PassController.DetermineNextPosition`
 
-# PassLoops
+## PassLoops
 
 Table contains parameters to describe loops. Each row defines a single loop.
 
-## AssignedToPassId
+### AssignedToPassId
 
-Reference to Passes.Id. Assigns the loop to a pass.
+Reference to [Pass Id](#Id). Assigns the loop to a pass.
 
-| Description | Value |
-|---|---|
-| Default | - |
-| Example | Pass-0001 |
-| Unit | - |
-| Allowed Range | - |
-| Dependencies | Passes.Id |
+| Description   | Value          |
+| ------------- | -------------- |
+| Default       | -              |
+| Example       | Pass-0001      |
+| Unit          | -              |
+| Allowed Range | -              |
+| Dependencies  | [Pass Id](#Id) |
 
-Technical information: Lib-Exercises
+Technical information: `Lib-Exercises`
 
-## IsScanPlayersSituation
+### IsScanPlayersSituation
 
 Denotes whether PlayersSituation should be rendered within that loop.
 
-| Description | Value |
-|---|---|
-| Default | false |
-| Example | check |
-| Unit | boolean value |
-| Allowed Range | - |
-| Dependencies | Enables PlayersSituation |
+| Description   | Value                    |
+| ------------- | ------------------------ |
+| Default       | `false`                  |
+| Example       | check                    |
+| Unit          | boolean value            |
+| Allowed Range | -                        |
+| Dependencies  | Enables PlayersSituation |
 
-Technical information: GameplayController.StartNextLoop
+Technical information: `GameplayController.StartNextLoop`
 
-## PlayerRangeLeft
+### PlayerRangeLeft
 
 A value or a value range that defines where the PlayersSituation appears at the left side of the player.
 
-The determination of the PlayersSituation appearance angle is based on PlayerRangeLeft and PlayerRangeRight.
- - If there are configs for both sides, the configuration is randomly chosen.
- - If there is a config for only one side, the configuration is chosen.
- - If there is no (valid) configuration, the angle is chosen randomly.
+The determination of the PlayersSituation appearance angle is based on [PlayerRangeLeft](#PlayerRangeLeft) and PlayerRangeRight[PlayerRangeRight](#PlayerRangeRight).
 
-| Description | Value |
-|---|---|
-| Default | 0-180 |
-| Example | 10 or 10-50 |
-| Unit | degrees |
-| Allowed Range | 0 to 180 |
-| Dependencies | If PlayerRangeLeft and PlayerRangeRight are defined, one definition is picked randomly  |
+- If there are configs for both sides, the configuration is randomly chosen.
+- If there is a config for only one side, the configuration is chosen.
+- If there is no (valid) configuration, the angle is chosen randomly.
 
-Technical information: AngleDetermination
+| Description   | Value                                                                                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `0-180`                                                                                                                                         |
+| Example       | `10` or `10-50`                                                                                                                                 |
+| Unit          | degrees                                                                                                                                         |
+| Allowed Range | `0` to `180`                                                                                                                                    |
+| Dependencies  | If [PlayerRangeLeft](#PlayerRangeLeft) and PlayerRangeRight[PlayerRangeRight](#PlayerRangeRight) are defined, one definition is picked randomly |
 
-## PlayerRangeRight
+Technical information: `AngleDetermination`
+
+### PlayerRangeRight
 
 A value or a value range that defines where the PlayersSituation appears at the right side of the player.
 
-For more information see PlayerRangeLeft.
+For more information see [PlayerRangeLeft](#PlayerRangeLeft).
 
-| Description | Value |
-|---|---|
-| Default | 0-180 |
-| Example | 10 or 10-50 |
-| Unit | degrees |
-| Allowed Range | 0 to 180 |
-| Dependencies | If PlayerRangeLeft and PlayerRangeRight are defined, one definition is picked randomly  |
+| Description   | Value                                                                                                                                           |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `0-180`                                                                                                                                         |
+| Example       | `10` or `10-50`                                                                                                                                 |
+| Unit          | degrees                                                                                                                                         |
+| Allowed Range | `0` to `180`                                                                                                                                    |
+| Dependencies  | If [PlayerRangeLeft](#PlayerRangeLeft) and PlayerRangeRight[PlayerRangeRight](#PlayerRangeRight) are defined, one definition is picked randomly |
 
-Technical information: AngleDetermination
+Technical information: `AngleDetermination`
 
-## PlayersSituationDistance
+### PlayersSituationDistance
 
 The distance between the center of the PlayersSituation and the center of the game (where the player is roughly located).
 
-| Description | Value |
-|---|---|
-| Default | Random value within allowed range |
-| Example | 4.25 |
-| Unit | m |
-| Allowed Range | 4 to 30 |
-| Dependencies | - |
+| Description   | Value                             |
+| ------------- | --------------------------------- |
+| Default       | Random value within allowed range |
+| Example       | `4.25`                            |
+| Unit          | m                                 |
+| Allowed Range | `4` to `30`                       |
+| Dependencies  | -                                 |
 
-Technical information: PlayersSituationIsland.Place
+Technical information: `PlayersSituationIsland.Place`
 
-## PlayersSituationRadius
+### PlayersSituationRadius
 
 The radius in which Pins are distributed around the center of the PlayersSituation. Only relevant if Pins are not predefined.
 
-| Description | Value |
-|---|---|
-| Default | 3.25 |
-| Example | 5 |
-| Unit | degrees |
-| Allowed Range | 1 to 20 |
-| Dependencies | Only applies if both MatePredefinedPlaces and OpponentPredefinedPlaces are empty |
+| Description   | Value                                                                                                                                  |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `3.25`                                                                                                                                 |
+| Example       | `5`                                                                                                                                    |
+| Unit          | degrees                                                                                                                                |
+| Allowed Range | `1` to `20`                                                                                                                            |
+| Dependencies  | Only applies if both [MatePredefinedPlaces](#MatePredefinedPlaces) and [OpponentPredefinedPlaces](#OpponentPredefinedPlaces) are empty |
 
-Technical information: PlayersSituationIsland.PlacePinsRandomly
+Technical information: `PlayersSituationIsland.PlacePinsRandomly`
 
-## PlayersMinDistanceBetween
+### PlayersMinDistanceBetween
 
 Minimum distance between Pins on a PlayersSituation. Note that it depends on the radius, whether the distance can be achieved.
 
@@ -329,142 +377,143 @@ To decide whether overlapping is allowed, simplicity is calculated based on the 
 `simplicity = island radius / number of pins * required distance`
 
 If `simplicity < 1.8`, overlapping is allowed.
-With the current max size of the island (3,25), it is not possible to render 19 pins without overlapping. It is not even possible with a min distance of < 0,2.
-According to the formula above, 9 pins is the max rendered with a min distance of 0,2.
+With the current max size of the island (`3,25`), it is not possible to render `19` pins without overlapping. It is not even possible with a min distance of < `0,2`.
+According to the formula above, `9` pins is the max rendered with a min distance of `0,2`.
 
 `3,25/(9*0,2)= 1,8055555556`
 
-| Description | Value |
-|---|---|
-| Default | 0.2 |
-| Example | 5 |
-| Unit | m |
-| Allowed Range | 0.2 to 10 |
-| Dependencies | PlayersSituationRadius and number of Pins to be rendered |
+| Description   | Value                                                                               |
+| ------------- | ----------------------------------------------------------------------------------- |
+| Default       | `0.2`                                                                               |
+| Example       | `5`                                                                                 |
+| Unit          | m                                                                                   |
+| Allowed Range | `0.2` to `10`                                                                       |
+| Dependencies  | [PlayersSituationRadius](#PlayersSituationRadius) and number of Pins to be rendered |
 
-Technical information: UniquePlaces.Generate
+Technical information: `UniquePlaces.Generate`
 
-## MatesOpponentsRatio
+### MatesOpponentsRatio
 
 The ratio of mate and opponent Pins shown on the PlayersSituation.
 
-| Description | Value |
-|---|---|
-| Default | 0:0 |
-| Example | 5:1 |
-| Unit | ratio |
-| Allowed Range | <0-10>:<0-10> |
-| Dependencies | Note that even if places are predefined [MatePredefinedPlaces](#MatePredefinedPlaces) and [OpponentPredefinedPlaces](#OpponentPredefinedPlaces) the ratio must match the predefined ratio for correct evaluation reasons. |
+| Description   | Value                                                                                                                                                                                                                     |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `0:0`                                                                                                                                                                                                                     |
+| Example       | `5:1`                                                                                                                                                                                                                     |
+| Unit          | ratio                                                                                                                                                                                                                     |
+| Allowed Range | `<0-10>:<0-10>`                                                                                                                                                                                                           |
+| Dependencies  | Note that even if places are predefined [MatePredefinedPlaces](#MatePredefinedPlaces) and [OpponentPredefinedPlaces](#OpponentPredefinedPlaces) the ratio must match the predefined ratio for correct evaluation reasons. |
 
-Technical information: PlayersSituationIsland.PlacePinsRandomly
+Technical information: `PlayersSituationIsland.PlacePinsRandomly`
 
-## MatePredefinedPlaces
+### MatePredefinedPlaces
 
 Explicit placement of mate pins around the center of the PlayersSituation as (x/z) Coordinates.
-E.g.: (0.0/0.0);(1.0/1.0)
+E.g.: `(0.0/0.0);(1.0/1.0)`
+
 In addition to static placement, it is possible to define movements following the pattern: `(x/z)=durationA>(x/z)`.
-E.g.: (1.1/1.1)=1.0>(3.5/3.5)=2.1>(1.6/1.6);(1.4/2.2)=1.0>(-4.6/-2.8)
+E.g.: `(1.1/1.1)=1.0>(3.5/3.5)=2.1>(1.6/1.6);(1.4/2.2)=1.0>(-4.6/-2.8)`
 
-| Description | Value |
-|---|---|
-| Default | - |
-| Example | (1.1/1.1)=1.0>(3.5/3.5)=2.1>(1.6/1.6);(1.4/2.2) |
-| Unit | (m/m) center of the PlayersSituation is (0/0) |
-| Allowed Range | no restrictions |
-| Dependencies | Note that [MatesOpponentsRatio](#MatesOpponentsRatio) must match the predefined ratio for correct evaluation reasons. |
+| Description   | Value                                                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Default       | -                                                                                                                     |
+| Example       | `(1.1/1.1)=1.0>(3.5/3.5)=2.1>(1.6/1.6);(1.4/2.2)`                                                                     |
+| Unit          | (m/m) center of the PlayersSituation is (0/0)                                                                         |
+| Allowed Range | no restrictions                                                                                                       |
+| Dependencies  | Note that [MatesOpponentsRatio](#MatesOpponentsRatio) must match the predefined ratio for correct evaluation reasons. |
 
-Technical information: PredefinedPositioning
+Technical information: `PredefinedPositioning`
 
-## OpponentPredefinedPlaces
+### OpponentPredefinedPlaces
 
 Explicit placement of opponent pins around the center of the PlayersSituation.
 
 see [MatePredefinedPlaces](#MatePredefinedPlaces)
 
-## IsHandConstrained
+### IsHandConstrained
 
 Denotes whether input triggers (balls in front of the player) should be assigned a random hand side.
 If assigned to a hand side it is only allowed to hit the input trigger with that randomly assigend hand side.
 
-| Description | Value |
-|---|---|
-| Default | false |
-| Example | check |
-| Unit | boolean value |
-| Allowed Range | - |
-| Dependencies | - |
+| Description   | Value         |
+| ------------- | ------------- |
+| Default       | `false`       |
+| Example       | check         |
+| Unit          | boolean value |
+| Allowed Range | -             |
+| Dependencies  | -             |
 
-Technical information: ColorInputSystem.SetHandConstrainState
+Technical information: `ColorInputSystem.SetHandConstrainState`
 
-## IsHapticConstrained
+### IsHapticConstrained
 
 Denotes whether input triggers (balls in front of the player) can only be hit with a certain hand (if checked, randomly chosen hand controller vibrates in the beginning of the loop).
 
-| Description | Value |
-|---|---|
-| Default | false |
-| Example | check |
-| Unit | boolean value |
-| Allowed Range | - |
-| Dependencies | - |
+| Description   | Value         |
+| ------------- | ------------- |
+| Default       | `false`       |
+| Example       | check         |
+| Unit          | boolean value |
+| Allowed Range | -             |
+| Dependencies  | -             |
 
-Technical information: GameplayController.StartNextLoop
+Technical information: `GameplayController.StartNextLoop`
 
-## IsStalemateSituationPresent
+### IsStalemateSituationPresent
 
 Denotes whether a StalemateSituation should be rendered in addition to the PlayersSituation.
 
-| Description | Value |
-|---|---|
-| Default | false |
-| Example | check |
-| Unit | boolean value |
-| Allowed Range | - |
-| Dependencies | - |
+| Description   | Value         |
+| ------------- | ------------- |
+| Default       | `false`       |
+| Example       | check         |
+| Unit          | boolean value |
+| Allowed Range | -             |
+| Dependencies  | -             |
 
-Technical information: GameplayController.RenderPlayersSituations
+Technical information: `GameplayController.RenderPlayersSituations`
 
-## StalemateRangeLeft
+### StalemateRangeLeft
 
 see [PlayerRangeLeft](#PlayerRangeLeft)
 
-In addition to the way the [PlayerRange](#PlayerRangeLeft) works the StalemateSituation is shown in the opposite of the PlayersSituation if StalemateRangeLeft and StalemateRangeRight are left empty.
+In addition to the way the [PlayerRange](#PlayerRangeLeft) works the StalemateSituation is shown in the opposite of the PlayersSituation if [StalemateRangeLeft](#StalemateRangeLeft) and [StalemateRangeRight](#StalemateRangeRight) are left empty.
 
-## StalemateRangeRight
+### StalemateRangeRight
 
 see [PlayerRangeRight](#PlayerRangeRight)
 and [StalemateRangeLeft](#StalemateRangeLeft)
 
-## StalemateSituationDistance
+### StalemateSituationDistance
 
 see [PlayersSituationDistance](#PlayersSituationDistance)
 
-## StalemateSituationRadius
+### StalemateSituationRadius
 
 see [PlayersSituationRadius](#PlayersSituationRadius)
 
-## StalematePinsPerTeam
+### StalematePinsPerTeam
 
 A StalemateSituation always consists of an equal number of mate and opponent Pins. This parameter defines how many Pins per team show up.
 
-| Description | Value |
-|---|---|
-| Default | Random value within allowed range |
-| Example | 2 |
-| Unit | - |
-| Allowed Range | 1 to 5 |
-| Dependencies | Ignored if  |
+| Description   | Value                                                                                                                                                                                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | Random value within allowed range                                                                                                                                                                                             |
+| Example       | `2`                                                                                                                                                                                                                           |
+| Unit          | -                                                                                                                                                                                                                             |
+| Allowed Range | `1` to `5`                                                                                                                                                                                                                    |
+| Dependencies  | Ignored if pins are predefined: [StalemateMatePredefinedPlaces](#StalemateMatePredefinedPlaces) and [StalemateOpponentPredefinedPlaces](#StalemateOpponentPredefinedPlaces). In that case you must ensure stalemate property. |
 
-Technical information: GameplayController.RenderPlayersSituations
+Technical information: `GameplayController.RenderPlayersSituations`
 
-## StalemateMinDistanceBetween
+### StalemateMinDistanceBetween
 
 see [PlayersMinDistanceBetween](#PlayersMinDistanceBetween)
 
-## StalemateMatePredefinedPlaces
+### StalemateMatePredefinedPlaces
 
 see [MatePredefinedPlaces](#MatePredefinedPlaces)
 
-## StalemateOpponentPredefinedPlaces
+### StalemateOpponentPredefinedPlaces
 
 see [OpponentPredefinedPlaces](#OpponentPredefinedPlaces)
