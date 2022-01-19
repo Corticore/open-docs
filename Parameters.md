@@ -20,6 +20,10 @@
   - [IsRandomPassGiverTarget](#IsRandomPassGiverTarget)
   - [PassGiverTargetMinDistance](#PassGiverTargetMinDistance)
   - [PassGiverTargetMaxDistance](#PassGiverTargetMaxDistance)
+  - [HasRandomLoops](#HasRandomLoops)
+  - [PlayerRangeLeft (Pass)](#PlayerRangeLeft "Pass")
+  - [PlayerRangeRight (Pass)](#PlayerRangeRight "Pass")
+  - [StalemateProbability](#StalemateProbability)
 - [PassLoops Table](#PassLoops)
   - [AssignedToPassId](#AssignedToPassId)
   - [IsScanPlayersSituation](#IsScanPlayersSituation)
@@ -214,6 +218,7 @@ Technical information: `PassController.PlayPass`
 ### PassGiverTarget
 
 Deterministic target position of the PassObjective (pass giver) as (x/y/z) Coordinate.
+Note that with each row the PassGiver changes, because the PassReceiver becomes the PassGiver in the next pass.
 
 | Description   | Value                                                                                  |
 | ------------- | -------------------------------------------------------------------------------------- |
@@ -227,7 +232,7 @@ Technical information: `PassController.DetermineNextPosition`
 
 ### IsRandomPassGiverTarget
 
-Denotes whether PassObjective (pass giver) should have a random target position. If checked PassGiverTarget is ignored.
+Defines whether PassObjective (pass giver) should have a random target position. If checked PassGiverTarget is ignored.
 
 | Description   | Value                                                                                           |
 | ------------- | ----------------------------------------------------------------------------------------------- |
@@ -271,6 +276,50 @@ For more information see [PassGiverTargetMinDistance](#PassGiverTargetMinDistanc
 
 Technical information: `PassController.DetermineNextPosition`
 
+### HasRandomLoops
+
+Defines whether random loops should be generated for this pass.
+If checked, [PassLoops](#PassLoops) are ignored for this pass.
+
+| Description   | Value         |
+| ------------- | ------------- |
+| Default       | `false`       |
+| Example       | check         |
+| Unit          | boolean value |
+| Allowed Range | -             |
+| Dependencies  | -             |
+
+Technical information: `RandomLoopGenerator`
+
+### PlayerRangeLeft (Pass)
+
+see [PlayerRangeRight](#PlayerRangeRight)
+
+with the difference that here, it is applied to all loops randomly generated for this pass.
+Only applies if [HasRandomLoops](#HasRandomLoops) is checked.
+
+### PlayerRangeRight (Pass)
+
+see [PlayerRangeRight](#PlayerRangeRight)
+
+with the difference that here, it is applied to all loops randomly generated for this pass.
+Only applies if [HasRandomLoops](#HasRandomLoops) is checked.
+
+### StalemateProbability
+
+Probability that a random Stalemate situation is shown in the loops randomly generated for this pass.
+0.0 means 0% chance, 1.0 means 100% chance.
+
+| Description   | Value                                                        |
+| ------------- | ------------------------------------------------------------ |
+| Default       | `0`                                                          |
+| Example       | `0.25`                                                       |
+| Unit          | -                                                            |
+| Allowed Range | `0.0` to `1.0`                                               |
+| Dependencies  | Only applies if [HasRandomLoops](#HasRandomLoops) is checked |
+
+Technical information: `RandomLoopGenerator`
+
 ## PassLoops
 
 Table contains parameters to describe loops. Each row defines a single loop.
@@ -291,7 +340,7 @@ Technical information: `Lib-Exercises`
 
 ### IsScanPlayersSituation
 
-Denotes whether PlayersSituation should be rendered within that loop.
+Defines whether PlayersSituation should be rendered within that loop.
 
 | Description   | Value                    |
 | ------------- | ------------------------ |
@@ -432,7 +481,7 @@ see [MatePredefinedPlaces](#MatePredefinedPlaces)
 
 ### IsHandConstrained
 
-Denotes whether input triggers (balls in front of the player) should be assigned a random hand side.
+Defines whether input triggers (balls in front of the player) should be assigned a random hand side.
 If assigned to a hand side it is only allowed to hit the input trigger with that randomly assigend hand side.
 
 | Description   | Value         |
@@ -447,7 +496,7 @@ Technical information: `ColorInputSystem.SetHandConstrainState`
 
 ### IsHapticConstrained
 
-Denotes whether input triggers (balls in front of the player) can only be hit with a certain hand (if checked, randomly chosen hand controller vibrates in the beginning of the loop).
+Defines whether input triggers (balls in front of the player) can only be hit with a certain hand (if checked, randomly chosen hand controller vibrates in the beginning of the loop).
 
 | Description   | Value         |
 | ------------- | ------------- |
@@ -461,7 +510,7 @@ Technical information: `GameplayController.StartNextLoop`
 
 ### IsStalemateSituationPresent
 
-Denotes whether a StalemateSituation should be rendered in addition to the PlayersSituation.
+Defines whether a StalemateSituation should be rendered in addition to the PlayersSituation.
 
 | Description   | Value         |
 | ------------- | ------------- |
