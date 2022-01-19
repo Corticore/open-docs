@@ -21,8 +21,8 @@
   - [PassGiverTargetMinDistance](#PassGiverTargetMinDistance)
   - [PassGiverTargetMaxDistance](#PassGiverTargetMaxDistance)
   - [HasRandomLoops](#HasRandomLoops)
-  - [PlayerRangeLeft (Pass)](#PlayerRangeLeft "Pass")
-  - [PlayerRangeRight (Pass)](#PlayerRangeRight "Pass")
+  - [PlayerRangeLeft (Pass)](#PlayerRangeLeft_Pass)
+  - [PlayerRangeRight (Pass)](#PlayerRangeRight_Pass)
   - [StalemateProbability](#StalemateProbability)
 - [PassLoops Table](#PassLoops)
   - [AssignedToPassId](#AssignedToPassId)
@@ -291,14 +291,14 @@ If checked, [PassLoops](#PassLoops) are ignored for this pass.
 
 Technical information: `RandomLoopGenerator`
 
-### PlayerRangeLeft (Pass)
+### PlayerRangeLeft_Pass
 
 see [PlayerRangeRight](#PlayerRangeRight)
 
 with the difference that here, it is applied to all loops randomly generated for this pass.
 Only applies if [HasRandomLoops](#HasRandomLoops) is checked.
 
-### PlayerRangeRight (Pass)
+### PlayerRangeRight_Pass
 
 see [PlayerRangeRight](#PlayerRangeRight)
 
