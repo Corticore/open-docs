@@ -423,7 +423,7 @@ Minimum distance between Pins on a PlayersSituation. Note that it depends on the
 The island might be too small to render all pins without overlapping. The implemented solution will allow overlapping if the island is too small.
 To decide whether overlapping is allowed, simplicity is calculated based on the following formula:
 
-`simplicity = island radius / number of pins * required distance`
+`simplicity = island radius / (number of pins * required distance)`
 
 If `simplicity < 1.8`, overlapping is allowed.
 With the current max size of the island (`3,25`), it is not possible to render `19` pins without overlapping. It is not even possible with a min distance of < `0,2`.
