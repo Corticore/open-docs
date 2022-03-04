@@ -24,6 +24,8 @@
   - [PlayerRangeLeft (Pass)](#PlayerRangeLeft_Pass)
   - [PlayerRangeRight (Pass)](#PlayerRangeRight_Pass)
   - [StalemateProbability](#StalemateProbability)
+  - [WithPlayersMovement](#WithPlayersMovement)
+  - [WithStalemateMovement](#WithStalemateMovement)
 - [PassLoops Table](#PassLoops)
   - [AssignedToPassId](#AssignedToPassId)
   - [IsScanPlayersSituation](#IsScanPlayersSituation)
@@ -46,6 +48,7 @@
   - [StalemateMinDistanceBetween](#StalemateMinDistanceBetween)
   - [StalemateMatePredefinedPlaces](#StalemateMatePredefinedPlaces)
   - [StalemateOpponentPredefinedPlaces](#StalemateOpponentPredefinedPlaces)
+  - [RelevantForEvaluation](#RelevantForEvaluation)
 
 # Parameters
 
@@ -320,6 +323,34 @@ Probability that a random Stalemate situation is shown in the loops randomly gen
 
 Technical information: `RandomLoopGenerator`
 
+### WithPlayersMovement
+
+Enables random movement of humanoids within players situation.
+
+| Description   | Value                                                        |
+| ------------- | ------------------------------------------------------------ |
+| Default       | `false`                                                      |
+| Example       | check                                                        |
+| Unit          | boolean value                                                |
+| Allowed Range | -                                                            |
+| Dependencies  | Only applies if [HasRandomLoops](#HasRandomLoops) is checked |
+
+Technical information: `HumPlacement`
+
+### WithStalemateMovement
+
+Enables random movement of humanoids within stalemate situation
+
+| Description   | Value                                                        |
+| ------------- | ------------------------------------------------------------ |
+| Default       | `false`                                                      |
+| Example       | check                                                        |
+| Unit          | boolean value                                                |
+| Allowed Range | -                                                            |
+| Dependencies  | Only applies if [HasRandomLoops](#HasRandomLoops) is checked |
+
+Technical information: `HumPlacement`
+
 ## PassLoops
 
 Table contains parameters to describe loops. Each row defines a single loop.
@@ -566,3 +597,15 @@ see [MatePredefinedPlaces](#MatePredefinedPlaces)
 ### StalemateOpponentPredefinedPlaces
 
 see [OpponentPredefinedPlaces](#OpponentPredefinedPlaces)
+
+### RelevantForEvaluation
+
+Arbitrary string that has no effect on the gameplay. The string will be added to the loop statistics of the specific loop.
+
+| Description   | Value      |
+| ------------- | ---------- |
+| Default       | `<empty>`  |
+| Example       | `MOVEMENT` |
+| Unit          | -          |
+| Allowed Range | -          |
+| Dependencies  | -          |
