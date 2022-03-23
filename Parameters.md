@@ -48,6 +48,8 @@
   - [StalemateMinDistanceBetween](#StalemateMinDistanceBetween)
   - [StalemateMatePredefinedPlaces](#StalemateMatePredefinedPlaces)
   - [StalemateOpponentPredefinedPlaces](#StalemateOpponentPredefinedPlaces)
+  - [InputBallArrangement](#InputBallArrangement)
+  - [ExpectedHandSide](#ExpectedHandSide)
   - [RelevantForEvaluation](#RelevantForEvaluation)
 
 # Parameters
@@ -597,6 +599,36 @@ see [MatePredefinedPlaces](#MatePredefinedPlaces)
 ### StalemateOpponentPredefinedPlaces
 
 see [OpponentPredefinedPlaces](#OpponentPredefinedPlaces)
+
+### InputBallArrangement
+
+Defines the arrangement of the input balls (in front of the player) in terms of color order and height.
+
+| Description   | Value                                                                                                                                                                                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | Random                                                                                                                                                                                  |
+| Example       | `c3(0.04),c2(-0.01),c1(0.13)`                                                                                                                                                                                                                           |
+| Unit          | the number is in meters above or below the baseline in front of the player                                                                                                                                                                                                                             |
+| Allowed Range | number: `-0.1` to `0.15`                                                                                                                                                                                                                    |
+| Dependencies  | - |
+
+Technical information: `LoopPlayer` and `ColorInputSystem`
+
+### ExpectedHandSide
+
+The hand to which the haptic input is restricted.
+
+`r` = right hand; `l` = left hand
+
+| Description   | Value                                                                                                                                                                                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | Random `r` or `l`                                                                                                                                                                                            |
+| Example       | `r`                                                                                                                                                                                                                           |
+| Unit          | -                                                                                                                                                                                                                             |
+| Allowed Range | `r` to `l`                                                                                                                                                                                                                    |
+| Dependencies  | Relevant if [IsHapticConstrained](#IsHapticConstrained) is `true` |
+
+Technical information: `LoopPlayer`
 
 ### RelevantForEvaluation
 
