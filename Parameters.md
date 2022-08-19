@@ -26,6 +26,7 @@
   - [StalemateProbability](#StalemateProbability)
   - [WithPlayersMovement](#WithPlayersMovement)
   - [WithStalemateMovement](#WithStalemateMovement)
+  - [HapticConstraintProbability](#HapticConstraintProbability)
 - [PassLoops Table](#PassLoops)
   - [AssignedToPassId](#AssignedToPassId)
   - [IsScanPlayersSituation](#IsScanPlayersSituation)
@@ -352,6 +353,21 @@ Enables random movement of humanoids within stalemate situation
 | Dependencies  | Only applies if [HasRandomLoops](#HasRandomLoops) is checked |
 
 Technical information: `HumPlacement`
+
+### HapticConstraintProbability
+
+Probability that haptic is constraint in the loops randomly generated for this pass.
+0.0 means 0% chance, 1.0 means 100% chance.
+
+| Description   | Value                                                        |
+| ------------- | ------------------------------------------------------------ |
+| Default       | `0`                                                          |
+| Example       | `0.25`                                                       |
+| Unit          | -                                                            |
+| Allowed Range | `0.0` to `1.0`                                               |
+| Dependencies  | Only applies if [HasRandomLoops](#HasRandomLoops) is checked |
+
+Technical information: `RandomLoopGenerator`
 
 ## PassLoops
 
