@@ -14,6 +14,8 @@
   - [MinLowerPositionPassObjective](#MinLowerPositionPassObjective)
   - [MaxNearPositionPassObjective](#MaxNearPositionPassObjective)
   - [MaxFarPositionPassObjective](#MaxFarPositionPassObjective)
+  - [WeatherEffect](#WeatherEffect)
+  - [WeatherIntensity](#WeatherIntensity)
 - [Passes Table](#Passes)
   - [BallSize](#Id)
   - [BallSpeed](#BallSpeed)
@@ -177,6 +179,31 @@ Positioning PassObjectives randomly, this is the farest position possible
 | Dependencies  | Relevant if [IsRandomPassGiverTarget](#IsRandomPassGiverTarget) is checked; may interfere [MaxNearPositionPassObjective](#MaxNearPositionPassObjective) |
 
 Technical information: `PassController.DetermineNextPosition`
+
+### WeatherEffect
+
+Applies a weather effect during gameplay
+
+| Description   | Value                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | -                                                                                                                                                    |
+| Example       | `rain`                                                                                                                                                 |
+| Unit          | -                                                                                                                                                       |
+| Allowed Range | `rain` to `fog` (case does not matter)                                                                                                                                            |
+| Dependencies  |            |
+
+### WeatherIntensity
+
+The intensity of the weather effect applied during gameplay
+
+| Description   | Value                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default       | `0.0`                                                                                                                                                    |
+| Example       | `0.5`                                                                                                                                                 |
+| Unit          | m                                                                                                                                                       |
+| Allowed Range | `0.0` to `1.0`                                                                                                                                            |
+| Dependencies  | Relevant if [WeatherEffect](#WeatherEffect) is defined |
+
 
 ## Passes
 

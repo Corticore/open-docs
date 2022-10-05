@@ -14,6 +14,8 @@
   - [MinLowerPositionPassObjective](#MinLowerPositionPassObjective)
   - [MaxNearPositionPassObjective](#MaxNearPositionPassObjective)
   - [MaxFarPositionPassObjective](#MaxFarPositionPassObjective)
+  - [WeatherEffect](#WeatherEffect)
+  - [WeatherIntensity](#WeatherIntensity)
 - [Passes Table](#Passes)
   - [BallSize](#Id)
   - [BallSpeed](#BallSpeed)
@@ -92,6 +94,14 @@ Same as [Shared Parameters](./SharedParameters.md#MaxNearPositionPassObjective)
 ### MaxFarPositionPassObjective
 
 Same as [Shared Parameters](./SharedParameters.md#MaxFarPositionPassObjective)
+
+### WeatherEffect
+
+Same as [Shared Parameters](./SharedParameters.md#weathereffect)
+
+### WeatherIntensity
+
+Same as [Shared Parameters](./SharedParameters.md#weatherintensity)
 
 ## Passes
 
