@@ -200,7 +200,7 @@ The intensity of the weather effect applied during gameplay
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Default       | `0.0`                                                                                                                                                    |
 | Example       | `0.5`                                                                                                                                                 |
-| Unit          | m                                                                                                                                                       |
+| Unit          | -                                                                                                                                                       |
 | Allowed Range | `0.0` to `1.0`                                                                                                                                            |
 | Dependencies  | Relevant if [WeatherEffect](#WeatherEffect) is defined |
 
