@@ -31,6 +31,8 @@
   - [StalemateProbability](#StalemateProbability)
   - [WithPlayersMovement](#WithPlayersMovement)
   - [WithStalemateMovement](#WithStalemateMovement)
+  - [HasAiGeneratedLoops](#HasAiGeneratedLoops)
+  - [AiDifficulty](#AiDifficulty)
 - [PassLoops Table](#PassLoops)
   - [AssignedToPassId](#AssignedToPassId)
   - [IsHandConstrained](#IsHandConstrained)
@@ -207,6 +209,30 @@ Enables random movement of humanoids within stalemate situation
 | Dependencies  | Only applies if [HasRandomLoops](#HasRandomLoops) is checked |
 
 Technical information: `HumPlacement`
+
+### HasAiGeneratedLoops
+
+Enables Ai generated loops for the pass
+
+| Description   | Value                                                        |
+| ------------- | ------------------------------------------------------------ |
+| Default       | `false`                                                      |
+| Example       | check                                                        |
+| Unit          | boolean value                                                |
+| Allowed Range | -                                                            |
+
+### AiDifficulty
+
+Sets the target difficulty of the generated Ai loops for the pass.
+
+| Description   | Value                                                                  |
+| ------------- | ---------------------------------------------------------------------- |
+| Default       | 1                                                                      |
+| Example       | 0.8                                                                    |
+| Unit          | -                                                                      |
+| Allowed Range | `0.5` - `2.0`                                                          |
+| Dependencies  | Only applies if [HasAiGeneratedLoops](#HasAiGeneratedLoops) is checked |
+
 
 ## PassLoops
 
