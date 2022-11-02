@@ -146,6 +146,7 @@ Same as [Shared Parameters](./SharedParameters.md#PassGiverTargetMaxDistance)
 ### HasRandomLoops
 
 Same as [Shared Parameters](./SharedParameters.md#HasRandomLoops)
+with the difference that here, it is applied only if [HasAiGeneratedLoops](#HasAiGeneratedLoops) is not checked.
 
 ### PlayerRangeLeft_Pass
 
@@ -212,7 +213,8 @@ Technical information: `HumPlacement`
 
 ### HasAiGeneratedLoops
 
-Enables Ai generated loops for the pass
+Enables Ai generated loops for the pass. If this parameter is set to `true`, the value of
+[HasRandomLoops](#HasRandomLoops) is ignored.
 
 | Description   | Value                                                        |
 | ------------- | ------------------------------------------------------------ |
