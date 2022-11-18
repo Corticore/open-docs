@@ -16,6 +16,9 @@
   - [MaxFarPositionPassObjective](#MaxFarPositionPassObjective)
   - [WeatherEffect](#WeatherEffect)
   - [WeatherIntensity](#WeatherIntensity)
+  - [EnableSupporters](#EnableSupporters)
+  - [TeamSupportersRatio](#TeamSupportersRatio)
+  - [OpponentSupportersRatio](#OpponentSupportersRatio)
 - [Passes Table](#Passes)
   - [BallSize](#Id)
   - [BallSpeed](#BallSpeed)
@@ -42,13 +45,13 @@ Table contains parameters that belong to the whole Level.
 
 Determines how to interprete the loops. Switches between our play modes (e.g. single scan or multi scan)
 
-| Description   | Value                    |
-| ------------- | ------------------------ |
-| Default       | `SINGLE`                 |
-| Example       | `MULTI`                  |
-| Unit          | -                        |
-| Allowed Range | SINGLE or MULTI          |
-| Dependencies  | -                        |
+| Description   | Value           |
+| ------------- | --------------- |
+| Default       | `SINGLE`        |
+| Example       | `MULTI`         |
+| Unit          | -               |
+| Allowed Range | SINGLE or MULTI |
+| Dependencies  | -               |
 
 ### BallSize
 
@@ -184,26 +187,63 @@ Technical information: `PassController.DetermineNextPosition`
 
 Applies a weather effect during gameplay
 
-| Description   | Value                                                                                                                                                   |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default       | -                                                                                                                                                    |
-| Example       | `rain`                                                                                                                                                 |
-| Unit          | -                                                                                                                                                       |
-| Allowed Range | `rain` to `fog` (case does not matter)                                                                                                                                            |
-| Dependencies  |            |
+| Description   | Value                                  |
+| ------------- | -------------------------------------- |
+| Default       | -                                      |
+| Example       | `rain`                                 |
+| Unit          | -                                      |
+| Allowed Range | `rain` to `fog` (case does not matter) |
+| Dependencies  |                                        |
 
 ### WeatherIntensity
 
 The intensity of the weather effect applied during gameplay
 
-| Description   | Value                                                                                                                                                   |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default       | `0.0`                                                                                                                                                    |
-| Example       | `0.5`                                                                                                                                                 |
-| Unit          | -                                                                                                                                                       |
-| Allowed Range | `0.0` to `1.0`                                                                                                                                            |
+| Description   | Value                                                  |
+| ------------- | ------------------------------------------------------ |
+| Default       | `0.0`                                                  |
+| Example       | `0.5`                                                  |
+| Unit          | -                                                      |
+| Allowed Range | `0.0` to `1.0`                                         |
 | Dependencies  | Relevant if [WeatherEffect](#WeatherEffect) is defined |
 
+### EnableSupporters
+
+If checked, [TeamSupportersRatio](#TeamSupportersRatio) and [OpponentSupportersRatio](#OpponentSupportersRatio) are applied and supporters are rendered according to the definition there.
+
+| Description   | Value         |
+| ------------- | ------------- |
+| Default       | `false`       |
+| Example       | check         |
+| Unit          | boolean value |
+| Allowed Range | -             |
+| Dependencies  | -             |
+
+### TeamSupportersRatio
+
+Defines how many team supporters will be rendered within the stadion.
+0 means no team supporters 1 means the max. number of team supporters.
+
+| Description   | Value                                                        |
+| ------------- | ------------------------------------------------------------ |
+| Default       | `0.0`                                                        |
+| Example       | `0.985`                                                      |
+| Unit          | -                                                            |
+| Allowed Range | `0.0` - `1.0`                                                |
+| Dependencies  | Relevant if [EnableSupporters](#EnableSupporters) is checked |
+
+### OpponentSupportersRatio
+
+Defines how many opponent supporters will be rendered within the stadion.
+0 means no opponent supporters 1 means the max. number of opponent supporters.
+
+| Description   | Value                                                        |
+| ------------- | ------------------------------------------------------------ |
+| Default       | `0.0`                                                        |
+| Example       | `0.985`                                                      |
+| Unit          | -                                                            |
+| Allowed Range | `0.0` - `1.0`                                                |
+| Dependencies  | Relevant if [EnableSupporters](#EnableSupporters) is checked |
 
 ## Passes
 
@@ -383,12 +423,12 @@ The hand to which the haptic input is restricted.
 
 `r` = right hand; `l` = left hand
 
-| Description   | Value                                                                                                                                                                                                                         |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default       | Random `r` or `l`                                                                                                                                                                                            |
-| Example       | `r`                                                                                                                                                                                                                           |
-| Unit          | -                                                                                                                                                                                                                             |
-| Allowed Range | `r` to `l`                                                                                                                                                                                                                    |
+| Description   | Value                                                             |
+| ------------- | ----------------------------------------------------------------- |
+| Default       | Random `r` or `l`                                                 |
+| Example       | `r`                                                               |
+| Unit          | -                                                                 |
+| Allowed Range | `r` to `l`                                                        |
 | Dependencies  | Relevant if [IsHapticConstrained](#IsHapticConstrained) is `true` |
 
 Technical information: `LoopPlayer`
