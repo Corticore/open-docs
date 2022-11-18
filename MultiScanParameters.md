@@ -16,6 +16,9 @@
   - [MaxFarPositionPassObjective](#MaxFarPositionPassObjective)
   - [WeatherEffect](#WeatherEffect)
   - [WeatherIntensity](#WeatherIntensity)
+  - [EnableSupporters](#EnableSupporters)
+  - [TeamSupportersRatio](#TeamSupportersRatio)
+  - [OpponentSupportersRatio](#OpponentSupportersRatio)
 - [Passes Table](#Passes)
   - [BallSize](#Id)
   - [BallSpeed](#BallSpeed)
@@ -102,6 +105,18 @@ Same as [Shared Parameters](./SharedParameters.md#weathereffect)
 ### WeatherIntensity
 
 Same as [Shared Parameters](./SharedParameters.md#weatherintensity)
+
+### EnableSupporters
+
+Same as [Shared Parameters](./SharedParameters.md#EnableSupporters)
+
+### TeamSupportersRatio
+
+Same as [Shared Parameters](./SharedParameters.md#TeamSupportersRatio)
+
+### OpponentSupportersRatio
+
+Same as [Shared Parameters](./SharedParameters.md#OpponentSupportersRatio)
 
 ## Passes
 
