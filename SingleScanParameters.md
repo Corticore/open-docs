@@ -19,6 +19,7 @@
   - [EnableSupporters](#EnableSupporters)
   - [TeamSupportersRatio](#TeamSupportersRatio)
   - [OpponentSupportersRatio](#OpponentSupportersRatio)
+  - [AlternativeFloor](#AlternativeFloor)
 - [Passes Table](#Passes)
   - [BallSize](#Id)
   - [BallSpeed](#BallSpeed)
@@ -128,6 +129,10 @@ Same as [Shared Parameters](./SharedParameters.md#TeamSupportersRatio)
 ### OpponentSupportersRatio
 
 Same as [Shared Parameters](./SharedParameters.md#OpponentSupportersRatio)
+
+### AlternativeFloor
+
+Same as [Shared Parameters](./SharedParameters.md#AlternativeFloor)
 
 ## Passes
 

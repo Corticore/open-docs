@@ -19,6 +19,7 @@
   - [EnableSupporters](#EnableSupporters)
   - [TeamSupportersRatio](#TeamSupportersRatio)
   - [OpponentSupportersRatio](#OpponentSupportersRatio)
+  - [AlternativeFloor](#AlternativeFloor)
 - [Passes Table](#Passes)
   - [BallSize](#Id)
   - [BallSpeed](#BallSpeed)
@@ -192,7 +193,7 @@ Applies a weather effect during gameplay
 | Default       | -                                      |
 | Example       | `rain`                                 |
 | Unit          | -                                      |
-| Allowed Range | `rain` to `fog` (case does not matter) |
+| Allowed Range | `rain` or `fog` (case does not matter) |
 | Dependencies  |                                        |
 
 ### WeatherIntensity
@@ -244,6 +245,18 @@ Defines how many opponent supporters will be rendered within the stadion.
 | Unit          | -                                                            |
 | Allowed Range | `0.0` - `1.0`                                                |
 | Dependencies  | Relevant if [EnableSupporters](#EnableSupporters) is checked |
+
+### AlternativeFloor
+
+Applies a floor material during gameplay
+
+| Description   | Value                                    |
+| ------------- | ---------------------------------------- |
+| Default       | -                                        |
+| Example       | `grass`                                  |
+| Unit          | -                                        |
+| Allowed Range | `grass` or `wood` (case does not matter) |
+| Dependencies  |                                          |
 
 ## Passes
 
